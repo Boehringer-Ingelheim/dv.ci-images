@@ -1,4 +1,4 @@
-# Docker Images for CI <img src="configs/repo-logo.svg" align="right" height="138" alt="" />
+# Docker Images for CI
 
 [![Build and Publish Image](https://github.com/Boehringer-Ingelheim/dv.ci-images/actions/workflows/build_push.yml/badge.svg?branch=main)](https://github.com/Boehringer-Ingelheim/dv.ci-images/actions/workflows/build_push.yml) [![Check and Lint Repo](https://github.com/Boehringer-Ingelheim/dv.ci-images/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/Boehringer-Ingelheim/dv.ci-images/actions/workflows/check.yml)
 
