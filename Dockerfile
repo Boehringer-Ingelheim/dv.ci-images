@@ -12,8 +12,6 @@ ARG CRAN=https://packagemanager.posit.co/cran/__linux__/jammy/latest
 ARG PANDOC_VERSION=2.9.2.1
 # https://github.com/quarto-dev/quarto-cli/tags
 ARG QUARTO_VERSION=1.3.450
-# https://github.com/lycheeverse/lychee-action/tags
-ARG LYCHEE_VERSION=0.14.3
 
 # Set up environment 
 ENV R_HOME=/usr/local/lib/R
@@ -25,8 +23,7 @@ COPY rocker_scripts/scripts /rocker_scripts
 RUN /rocker_scripts/install_R_source.sh && \
     /rocker_scripts/setup_R.sh && \
     /rocker_scripts/install_pandoc.sh && \
-    /rocker_scripts/install_quarto.sh && \
-    /rocker_scripts/install_texlive.sh
+    /rocker_scripts/install_quarto.sh 
 
 COPY scripts /scripts
 RUN /scripts/install_sys_deps.sh && \
