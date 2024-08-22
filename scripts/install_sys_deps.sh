@@ -17,3 +17,6 @@ apt-get install -q -y ${pkgs_to_install}
 apt-get autoremove -y
 apt-get autoclean -y
 rm -rf /var/lib/apt/lists/*
+
+# Install lychee URL checker
+curl -Ls https://github.com/lycheeverse/lychee/releases/download/v"${LYCHEE_VERSION}"/lychee-v"${LYCHEE_VERSION}"-"$(arch)"-unknown-linux-gnu.tar.gz | tar xz -C /usr/local/bin
