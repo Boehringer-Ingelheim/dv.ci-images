@@ -21,6 +21,10 @@ ENV TZ=Etc/UTC
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
+# See https://rstudio.github.io/chromote/news/index.html#chromote-030
+# To be fixed in the new development version so this line will go away soon
+ENV CHROMOTE_HEADLESS="new"
+
 COPY rocker_scripts/scripts /rocker_scripts
 RUN /rocker_scripts/install_R_source.sh && \
     /rocker_scripts/setup_R.sh && \
