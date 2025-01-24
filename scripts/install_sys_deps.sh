@@ -8,6 +8,7 @@ lbzip2 \
 rsync \
 qpdf \
 wget \
+texlive-latex-base\
 "
 apt-get update -y
 # shellcheck disable=SC2086
