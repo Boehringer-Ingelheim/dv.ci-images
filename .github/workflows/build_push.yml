@@ -53,6 +53,7 @@ jobs:
         with:
           repository: rocker-org/rocker-versioned2
           path: ./rocker_scripts
+          # latest at the date it was written, no specific reason
           ref: 5d33fd1232149483ea3cdae12cbd10a4e3eee65f
 
       - name: Set up Docker Buildx 📐
