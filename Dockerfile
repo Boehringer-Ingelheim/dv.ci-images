@@ -33,7 +33,10 @@ RUN /rocker_scripts/install_R_source.sh && \
 
 COPY scripts /scripts
 RUN /scripts/install_sys_deps.sh && \
-    /scripts/install_r_pkgs.R 
+    /scripts/install_r_pkgs.R
+
+# TinyTex is installed in /root/.TinyTex and then linked to /root/bin, for it to be found we link to a location found in PATH
+RUN ln -s /root/.TinyTeX/bin/*/* /usr/local/bin/
 
 # Cleanup
 RUN rm -rf /rocker_scripts /scripts 
