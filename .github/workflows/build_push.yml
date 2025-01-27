@@ -46,22 +46,22 @@ jobs:
 
     steps:
       - name: Checkout project ⬇️
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #@v4
 
       - name: Checkout Rocker project ⬇️
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #@v4
         with:
           repository: rocker-org/rocker-versioned2
           path: ./rocker_scripts
-          ref: master
+          ref: 5d33fd1232149483ea3cdae12cbd10a4e3eee65f
 
       - name: Set up Docker Buildx 📐
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5 #@v3
         with:
           install: true
 
       - name: Log in to the container registry 🗝️
-        uses: docker/login-action@v3
+        uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 #@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.repository_owner }}
@@ -78,7 +78,7 @@ jobs:
 
       - name: Docker metadata 🐋
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@369eb591f429131d6889c46b94e711f089e6ca96 #@v5
         with:
           images: |
             ${{ steps.build_vars.outputs.IMAGE_NAME }}
@@ -91,7 +91,7 @@ jobs:
             org.opencontainers.image.vendor=Boehringer-Ingelheim
 
       - name: Build and push image 🛠️
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@ca052bb54ab0790a636c9b5f226502c73d547a25 #@v5
         with:
           context: .
           file: ./Dockerfile
@@ -143,13 +143,13 @@ jobs:
           R -q -e 'write.csv(installed.packages(), file="/app/${{ steps.build-release.outputs.R_PKG_OUTPUT_FILENAME }}")'
 
       - name: Generate SBOM 📃
-        uses: anchore/sbom-action@v0
+        uses: anchore/sbom-action@f325610c9f50a54015d37c8d16cb3b0e2c8f4de0 #@v0
         with:
           image: "${{ steps.build-release.outputs.TAGGED_IMAGE }}"
           output-file: "${{ github.workspace }}/${{ steps.build-release.outputs.SBOM_OUTPUT_FILENAME }}"
 
       - name: Upload artifacts to release ⬆️
-        uses: marvinpinto/action-automatic-releases@latest
+        uses: marvinpinto/action-automatic-releases@d68defdd11f9dcc7f52f35c1b7c236ee7513bcc1 #@latest
         with:
           prerelease: false
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
