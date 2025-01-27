@@ -8,7 +8,9 @@ lbzip2 \
 rsync \
 qpdf \
 wget \
+texlive-latex-base\
 "
+# texlive-latex-base because it contains `pdflatex`
 apt-get update -y
 # shellcheck disable=SC2086
 apt-get install -q -y ${pkgs_to_install}
