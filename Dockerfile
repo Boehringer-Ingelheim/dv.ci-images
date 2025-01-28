@@ -21,6 +21,10 @@ ENV TZ=Etc/UTC
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
+# See https://rstudio.github.io/chromote/news/index.html#chromote-030
+# To be fixed in the new development version so this line will go away soon
+ENV CHROMOTE_HEADLESS="new"
+
 COPY rocker_scripts/scripts /rocker_scripts
 RUN /rocker_scripts/install_R_source.sh && \
     /rocker_scripts/setup_R.sh && \
@@ -29,7 +33,10 @@ RUN /rocker_scripts/install_R_source.sh && \
 
 COPY scripts /scripts
 RUN /scripts/install_sys_deps.sh && \
-    /scripts/install_r_pkgs.R 
+    /scripts/install_r_pkgs.R
+
+# TinyTex is installed in /root/.TinyTex and then linked to /root/bin, for it to be found we link to a location found in PATH
+RUN ln -s /root/.TinyTeX/bin/*/* /usr/local/bin/
 
 # Cleanup
 RUN rm -rf /rocker_scripts /scripts 
