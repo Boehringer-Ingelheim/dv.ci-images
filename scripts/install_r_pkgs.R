@@ -37,3 +37,20 @@ tinytex::install_tinytex()
 
 # Remove DaVinci packages from image
 grep("^dv.", rownames(installed.packages()), value = TRUE) |> sapply(remove.packages)
+
+
+# Install teal packages
+teal_pkgs <- c(
+  "teal.data",
+  "teal.modules.clinical",
+  "teal.modules.general",
+  "teal.slice",
+  "teal.transform"
+  )
+
+pak::pak(
+  pkg = teal_pkgs,
+  dependencies = TRUE,
+  ask = FALSE,
+  upgrade = FALSE
+)
