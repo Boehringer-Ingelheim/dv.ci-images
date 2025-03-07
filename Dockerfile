@@ -21,9 +21,12 @@ ENV TZ=Etc/UTC
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
-# See https://rstudio.github.io/chromote/news/index.html#chromote-030
-# To be fixed in the new development version so this line will go away soon
-ENV CHROMOTE_HEADLESS="new"
+# Chromium 134 breaks chromote (see https://stackoverflow.com/a/79489622)
+# We install the headless version and mark it as non-upgradable for good measure
+RUN add-apt-repository -y ppa:xtradeb/apps
+RUN apt-get install -y chromium-headless-shell
+RUN apt-mark hold chromium-headless-shell
+ENV CHROMOTE_CHROME=/usr/bin/chromium-headless-shell
 
 COPY rocker_scripts/scripts /rocker_scripts
 RUN /rocker_scripts/install_R_source.sh && \
