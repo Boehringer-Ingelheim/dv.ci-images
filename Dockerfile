@@ -23,6 +23,8 @@ ENV LC_ALL=en_US.UTF-8
 
 # Chromium 134 breaks chromote (see https://stackoverflow.com/a/79489622)
 # We install the headless version and mark it as non-upgradable for good measure
+RUN apt-get update
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository -y ppa:xtradeb/apps
 RUN apt-get install -y chromium-headless-shell
 RUN apt-mark hold chromium-headless-shell
