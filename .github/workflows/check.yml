@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
 
       - name: Super-linter
-        uses: super-linter/super-linter/slim@v6
+        uses: super-linter/super-linter/slim@ff5037c06042e564803502feb97f8a686f3b0171 # v6.0.0 but immutable
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
