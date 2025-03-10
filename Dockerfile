@@ -21,15 +21,6 @@ ENV TZ=Etc/UTC
 ENV LANG=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
-# Chromium 134 breaks chromote (see https://stackoverflow.com/a/79489622)
-# We install the headless version and mark it as non-upgradable for good measure
-RUN apt-get update
-RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:xtradeb/apps
-RUN apt-get install -y chromium-headless-shell
-RUN apt-mark hold chromium-headless-shell
-ENV CHROMOTE_CHROME=/usr/bin/chromium-headless-shell
-
 COPY rocker_scripts/scripts /rocker_scripts
 RUN /rocker_scripts/install_R_source.sh && \
     /rocker_scripts/setup_R.sh && \
@@ -37,6 +28,10 @@ RUN /rocker_scripts/install_R_source.sh && \
     /rocker_scripts/install_quarto.sh 
 
 COPY scripts /scripts
+
+RUN /scripts/install_chromium_headless_shell.sh
+ENV CHROMOTE_CHROME=/usr/bin/chromium-headless-shell
+
 RUN /scripts/install_sys_deps.sh && \
     /scripts/install_r_pkgs.R
 
