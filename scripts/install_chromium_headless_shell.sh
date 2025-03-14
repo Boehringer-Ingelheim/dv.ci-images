@@ -7,4 +7,4 @@ apt-get update -y
 apt-get install -y software-properties-common
 add-apt-repository -y ppa:xtradeb/apps
 apt-get install -y chromium-headless-shell
-apt-mark hold chromium-headless-shell
+# apt-mark hold chromium-headless-shell # pak fails when it can't update this
