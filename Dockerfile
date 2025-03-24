@@ -14,6 +14,7 @@ ARG PANDOC_VERSION=2.9.2.1
 ARG QUARTO_VERSION=1.3.450
 # https://github.com/lycheeverse/lychee/releases/
 ARG LYCHEE_VERSION=0.15.1
+ARG EXPECTED_LYCHEE_MD5SUM=9e6530526c89819ac9690f234ec952e2
 
 # Set up environment 
 ENV R_HOME=/usr/local/lib/R

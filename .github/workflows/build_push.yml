@@ -53,7 +53,7 @@ jobs:
         with:
           repository: rocker-org/rocker-versioned2
           path: ./rocker_scripts
-          ref: master
+          ref: abe4fc1f3fb1c50281f9de5b3636f8a117126f98
 
       - name: Set up Docker Buildx 📐
         uses: docker/setup-buildx-action@v3
