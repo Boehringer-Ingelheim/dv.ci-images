@@ -8,6 +8,9 @@ FROM ${OS_NAME}:${OS_VERSION}
 ARG R_VERSION=latest
 ARG CRAN=https://packagemanager.posit.co/cran/__linux__/jammy/latest
 
+# preserve texlive
+ARG PURGE_BUILDDEPS=false
+
 # https://github.com/jgm/pandoc/tags
 ARG PANDOC_VERSION=2.9.2.1
 # https://github.com/quarto-dev/quarto-cli/tags
@@ -35,9 +38,6 @@ ENV CHROMOTE_CHROME=/usr/bin/chromium-headless-shell
 
 RUN /scripts/install_sys_deps.sh && \
     /scripts/install_r_pkgs.R
-
-# TinyTex is installed in /root/.TinyTex and then linked to /root/bin, for it to be found we link to a location found in PATH
-RUN ln -s /root/.TinyTeX/bin/*/* /usr/local/bin/
 
 # Cleanup
 RUN rm -rf /rocker_scripts /scripts 
