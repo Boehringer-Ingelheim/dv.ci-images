@@ -48,12 +48,15 @@ jobs:
       - name: Checkout project ⬇️
         uses: actions/checkout@v4
 
+      # NOTE(miguel): We point to the latest commit on the `master` branch of rocker-version2 (2025-03-25)
+      # This may break our builds for future versions of R, but we will stop depending on these scripts 
+      # long before that can happen.
       - name: Checkout Rocker project ⬇️
         uses: actions/checkout@v4
         with:
           repository: rocker-org/rocker-versioned2
           path: ./rocker_scripts
-          ref: master
+          ref: abe4fc1f3fb1c50281f9de5b3636f8a117126f98
 
       - name: Set up Docker Buildx 📐
         uses: docker/setup-buildx-action@v3

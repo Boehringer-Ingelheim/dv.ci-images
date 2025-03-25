@@ -5,7 +5,6 @@ install.packages("pak")
 
 # Packages to install
 install_pkgs <- c(
-  "tinytex",
   "rcmdcheck",
   "roxygen2",
   "lintr",
@@ -31,9 +30,6 @@ pak::pak(
   ask = FALSE,
   upgrade = FALSE
 )
-
-# Install tinytex
-tinytex::install_tinytex()
 
 # Remove DaVinci packages from image
 grep("^dv.", rownames(installed.packages()), value = TRUE) |> sapply(remove.packages)
