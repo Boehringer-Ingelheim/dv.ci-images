@@ -48,6 +48,9 @@ jobs:
       - name: Checkout project ⬇️
         uses: actions/checkout@v4
 
+      # NOTE(miguel): We point to the latest commit on the `master` branch of rocker-version2 (2025-03-25)
+      # This may break our builds for future versions of R, but we will stop depending on these scripts 
+      # long before that can happen.
       - name: Checkout Rocker project ⬇️
         uses: actions/checkout@v4
         with:
