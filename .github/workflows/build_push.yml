@@ -5,7 +5,7 @@ env:
   REGISTRY: ghcr.io
   CRAN_PM: https://packagemanager.posit.co/cran/__linux__
   OS_NAME: ubuntu
-  OS_VERSION: jammy
+  OS_VERSION: noble
 
 on:
   workflow_dispatch:
