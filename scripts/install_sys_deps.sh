@@ -7,6 +7,7 @@ curl \
 lbzip2 \
 rsync \
 qpdf \
+texlive-xetex \
 wget \
 "
 apt-get update -y
