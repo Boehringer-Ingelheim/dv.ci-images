@@ -2,11 +2,13 @@
 set -e
 
 # List of system dependencies
+# texlive-xetex depends on texlive-latex-{extra,recommended,base}: fvextra, upquote, lineno, colortbl, anyfontsize
 pkgs_to_install="\
 curl \
 lbzip2 \
 rsync \
 qpdf \
+texlive-xetex \
 wget \
 "
 apt-get update -y
