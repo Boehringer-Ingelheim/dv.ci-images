@@ -36,6 +36,8 @@ on:
         default: ""
         type: string
 
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('Build-Publish-{0}-branch-{1}', tojson(inputs), github.ref_name) || '' }}
+
 jobs:
   build_publish:
     name: Build and Publish Image
