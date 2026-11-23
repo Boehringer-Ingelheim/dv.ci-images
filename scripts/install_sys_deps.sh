@@ -10,6 +10,7 @@ rsync \
 qpdf \
 texlive-xetex \
 wget \
+poppler-utils \
 "
 apt-get update -y
 # shellcheck disable=SC2086
